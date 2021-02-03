@@ -11,10 +11,13 @@ public class pulsador : MonoBehaviour
     GameObject note;
     static float puntos=0;
     public Text textoPuntos;
+    public AudioClip sound;
+
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        
+         audioSource=GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class pulsador : MonoBehaviour
             puntos++;
             textoPuntos.text="Total de puntos: "+puntos;
             Debug.Log("Total de puntos: "+puntos);
+            audioSource.PlayOneShot(sound);
             Destroy(note);
         }
     }
